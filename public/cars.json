@@ -1,0 +1,170 @@
+[
+    {
+        "car_id": "1",
+        "company": "Toyota",
+        "model": "Camry",
+        "img": "https://i.postimg.cc/Bb4g6HHc/car1.png",
+        "year": 2022,
+        "color": "Silver",
+        "mileage": 15000,
+        "transmission": "Automatic",
+        "engine": "2.5L Inline-4",
+        "fuel_type": "Gasoline",
+        "options": [
+            "Backup camera",
+            "Bluetooth connectivity",
+            "Keyless entry",
+            "Power windows",
+            "Cruise control"
+        ],
+        "price": 25000,
+        "description": "This 2022 Toyota Camry is a reliable and fuel-efficient sedan suitable for daily commuting or long drives. It comes with a sleek silver exterior, a spacious interior, and various modern features for comfort and convenience."
+    },
+    {
+        "car_id": "2",
+        "company": "Lamborghini",
+        "model": "Bishop",
+        "img": "https://i.postimg.cc/jqJjZBVf/car2.png",
+        "year": 2021,
+        "color": "Black",
+        "mileage": 25000,
+        "transmission": "Automatic",
+        "engine": "3.5L Inline-4",
+        "fuel_type": "Gasoline",
+        "options": [
+            "Backup camera",
+            "Bluetooth connectivity",
+            "Keyless entry",
+            "Power windows",
+            "Cruise control"
+        ],
+        "price": 55000,
+        "description": "This 2021 The Lamborghini Bishop is a reliable and fuel-efficient sedan suitable for daily commuting or long drives. It comes with a sleek silver exterior, a spacious interior, and various modern features for comfort and convenience."
+    },
+    {
+        "car_id": "3",
+        "company": "BMW",
+        "model": "Rook",
+        "img": "https://i.postimg.cc/hPBKMj1F/car3.png",
+        "year": 2011,
+        "color": "Silver",
+        "mileage": 2000,
+        "transmission": "Manual",
+        "engine": "1.5L Inline-4",
+        "fuel_type": "Dijel",
+        "options": [
+            "Backup camera",
+            "Bluetooth connectivity",
+            "Keyless entry",
+            "Power windows",
+            "Cruise control"
+        ],
+        "price": 6000,
+        "description": "This 2011 The BMW Rook is a reliable and fuel-efficient sedan suitable for daily commuting or long drives. It comes with a sleek silver exterior, a spacious interior, and various modern features for comfort and convenience."
+    },
+    {
+        "car_id": "4",
+        "company": "Toyota",
+        "model": "Accelerator 22CC",
+        "img": "https://i.postimg.cc/HLVmj7dM/car4.png",
+        "year": 2019,
+        "color": "Yellow",
+        "mileage": 12000,
+        "transmission": "Automatic",
+        "engine": "5.5L Inline-4",
+        "fuel_type": "Octen",
+        "options": [
+            "Backup camera",
+            "Bluetooth connectivity",
+            "Keyless entry",
+            "Power windows",
+            "Cruise control"
+        ],
+        "price": 76000,
+        "description": "This 2019 The Toyota Accelerator 22CC is a reliable and fuel-efficient sedan suitable for daily commuting or long drives. It comes with a sleek silver exterior, a spacious interior, and various modern features for comfort and convenience."
+    },
+    {
+        "car_id": "5",
+        "company": "Yamaha",
+        "model": "Ginice 22CC",
+        "img": "https://i.postimg.cc/Y0wBXngN/car5.png",
+        "year": 2022,
+        "color": "Blue",
+        "mileage": 2000,
+        "transmission": "Automatic",
+        "engine": "2.5L Inline-4",
+        "fuel_type": "Gasoline",
+        "options": [
+            "Backup camera",
+            "Bluetooth connectivity",
+            "Keyless entry",
+            "Power windows",
+            "Cruise control"
+        ],
+        "price": 46000,
+        "description": "This 2022 The Yamaha Ginice 22CC is a reliable and fuel-efficient sedan suitable for daily commuting or long drives. It comes with a sleek silver exterior, a spacious interior, and various modern features for comfort and convenience."
+    },
+    {
+        "car_id": "6",
+        "company": "Mercedes",
+        "model": "Mer ACG-99",
+        "img": "https://i.postimg.cc/QxmZbqM5/car6.png",
+        "year": 2021,
+        "color": "Red",
+        "mileage": 22000,
+        "transmission": "Automatic",
+        "engine": "6.5L Inline-4",
+        "fuel_type": "Gasoline",
+        "options": [
+            "Backup camera",
+            "Bluetooth connectivity",
+            "Keyless entry",
+            "Power windows",
+            "Cruise control"
+        ],
+        "price": 46000,
+        "description": "This 2021 The Mercedes Mer ACG-99 is a reliable and fuel-efficient sedan suitable for daily commuting or long drives. It comes with a sleek silver exterior, a spacious interior, and various modern features for comfort and convenience."
+    },
+    {
+        "car_id": "7",
+        "company": "Mazda",
+        "model": "Maz 22-NCC",
+        "img": "https://i.postimg.cc/cJ8zV7dF/car7.png",
+        "year": 2023,
+        "color": "Black",
+        "mileage": 22000,
+        "transmission": "Automatic",
+        "engine": "2.5L Inline-4",
+        "fuel_type": "Gasoline",
+        "options": [
+            "Backup camera",
+            "Bluetooth connectivity",
+            "Keyless entry",
+            "Power windows",
+            "Cruise control"
+        ],
+        "price": 46000,
+        "description": "This 2023 Mazda Maz 22-NCC is a reliable and fuel-efficient sedan suitable for daily commuting or long drives. It comes with a sleek silver exterior, a spacious interior, and various modern features for comfort and convenience."
+    },
+    {
+        "car_id": "8",
+        "company": "Ferrari",
+        "model": "ROOK 22CC",
+        "img": "https://i.postimg.cc/Y0wBXngN/car5.png",
+        "year": 2023,
+        "color": "Blue",
+        "mileage": 12000,
+        "transmission": "Automatic",
+        "engine": "6.5L Inline-4",
+        "fuel_type": "Gasoline",
+        "options": [
+            "Backup camera",
+            "Bluetooth connectivity",
+            "Keyless entry",
+            "Power windows",
+            "Cruise control"
+        ],
+        "price": 46000,
+        "description": "This 2022 The Ferrari ROOK 22CC is a reliable and fuel-efficient sedan suitable for daily commuting or long drives. It comes with a sleek silver exterior, a spacious interior, and various modern features for comfort and convenience."
+    }
+]
