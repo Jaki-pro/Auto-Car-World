@@ -22,7 +22,7 @@ const LookingCar = () => {
                 <div className='p-8 mx-auto'><GiAutoRepair className='size-16 animate-ping' /></div>
                 <h2 className='text-2xl fond-bold text-center'>Book A Car Repair?</h2>
                 <p className='text-center'>Our cars are delivered fully-registered with all requirements completed. We’ll deliver your car wherever you are.</p>
-                <Link className='mx-auto'><button className='btn btn-outline btn-warning'>BOOK A CAR REPAIR</button></Link>
+                <Link to='/repairs' className='mx-auto'><button className='btn btn-outline btn-warning'>BOOK A CAR REPAIR</button></Link>
             </div>
              
             

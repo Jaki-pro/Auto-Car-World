@@ -3,15 +3,15 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 import Row from './Row';
 import RowServices from './RowServices';
 import { deleteFromDb, getStoredCart } from '../../../utilities/fakedb';
-
-const Cart = (props) => {
-    const { user, loading, cartValue, setCartValue } = useContext(AuthContext);
+ 
+const Cart = (props) => { 
+    const { user, loading, cartCnt, setCartCnt} = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
     const [bookingsService, setBookingsService] = useState([]);
     const [carCollection, setCarCollection] = useState([]);
     const [serviceCollection, setServiceCollection] = useState([]);
     const [localBookings, setLocalBookings] = useState([]);
-    const [localBookingsService, setLocalBookingsService] = useState([]);
+    const [localBookingsService, setLocalBookingsService] = useState([]); 
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
     const url_services = `http://localhost:5000/bookings-service?email=${user?.email}`;
     useEffect(() => {
@@ -136,6 +136,10 @@ const Cart = (props) => {
             setLocalBookingsService(newCart);
         } 
     } 
+    useEffect(() => {
+
+        setCartCnt(localBookings.length + bookings.length + localBookingsService.length + bookingsService.length )
+    })
     return (
         <div className='p-16 '>
             <h1 className='text-3xl text-center mb-8'>My Bookings: {localBookings.length + bookings.length + localBookingsService.length + bookingsService.length }</h1>
@@ -204,6 +208,7 @@ const Cart = (props) => {
             </div>
         </div>
     );
-};
-
+}; 
+ 
+ 
 export default Cart;

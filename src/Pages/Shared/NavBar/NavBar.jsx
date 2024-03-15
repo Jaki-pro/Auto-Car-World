@@ -1,12 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaCartShopping } from "react-icons/fa6";
 import { FaAlignLeft } from "react-icons/fa";
 import { CiFacebook, CiInstagram, CiTwitter } from "react-icons/ci";
-import { AuthContext } from '../../../Providers/AuthProvider';
+import { AuthContext } from '../../../Providers/AuthProvider'; 
+
+export const CartContext = createContext();
 const NavBar = () => {
-    const { user, logout } = useContext(AuthContext);
+    const { user, logout, cartCnt, setCartCnt} = useContext(AuthContext);
     const [cartValue, setCartValue] = useState(0);
+   // console.log(()=>fun());
+
     const handleLogout = () => {
         logout();
     }
@@ -14,19 +18,18 @@ const NavBar = () => {
         setCartValue(value);
     }
     const navItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>Services</Link></li>
+        <li><Link to='/'>Home</Link></li> 
         <li>
             <details className="dropdown">
                 <summary className="m-1">Shop</summary>
                 <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 grid grid-cols1-1 gap-y-2">
                     <li><Link to='/new-cars'>New Car</Link></li>
-                    <li><Link>Old Car</Link></li>
+                    <li><Link to='old-cars'>Old Car</Link></li>
                     <li><Link to='repairs'>Car Repair</Link></li>
                 </ul>
             </details>
         </li>
-        <li><Link to='/'>Sell a Car</Link></li>
+        <li><Link to='/sell-car'>Sell a Car</Link></li>
         <li><Link to='/'>Contact</Link></li>
         <li><Link to='/'>About Us</Link></li>
         {
@@ -37,10 +40,10 @@ const NavBar = () => {
           
             
          
-        <li><Link className='relative' to='/bookings'><FaCartShopping className='size-6' /><div className="absolute left-9 bottom-4 badge badge-secondary">{2 }</div></Link></li>
+        <li><Link className='relative' to='/bookings'><FaCartShopping className='size-6' /><div className="absolute left-9 bottom-4 badge badge-secondary">{cartCnt}</div></Link></li>
 
     </>
-    return (
+    return ( 
         <div>
 
             <div className="navbar">
@@ -107,5 +110,5 @@ const NavBar = () => {
         </div>
     );
 };
-
+ 
 export default NavBar;

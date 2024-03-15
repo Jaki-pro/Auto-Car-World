@@ -5,7 +5,7 @@ import { addToDb } from '../../../utilities/fakedb';
 
 const OrderRequest = () => {
     const service = useLoaderData();
-    const { user } = useContext(AuthContext);
+    const { user, cartCnt, setCartCnt} = useContext(AuthContext);
     let cnt = 0;
     const { price, title, description, _id, service_id, img, facility  } = service;
 
@@ -41,6 +41,7 @@ const OrderRequest = () => {
                     console.log(data);
                 }) :
                 addToDb(service_id, "shopping_cart_service");
+                setCartCnt(cartCnt+1)
     }
 
     return (

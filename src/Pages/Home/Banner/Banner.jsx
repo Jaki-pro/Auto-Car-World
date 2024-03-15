@@ -6,7 +6,7 @@ import car3 from '../../../assets/car3.png'
 import './Banner.css'
 const Banner = () => {
     return (
-        <div className="bg-cover bg-center mx-h-screen" style={{ backgroundImage: `url(${banner})` }}>
+        <div className="bg-cover bg-center mx-h-screen" style={{  }}>
             {/* Your content here */}
             <div className="carousel w-full">
                 {/* 1st image */}

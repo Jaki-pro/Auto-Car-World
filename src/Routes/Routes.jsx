@@ -14,6 +14,8 @@ import NewCars from '../Pages/NewCars/NewCars';
 import Repairs from '../Pages/Repairs/Repairs';
 import ServiceDetails from '../Pages/Details/ServiceDetails/ServiceDetails';
 import OrderRequestService from '../Pages/Details/OrderRequestService/OrderRequestService';
+import SellCar from '../Pages/SellCar/SellCar';
+import OldCars from '../Pages/OldCars/OldCars';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -64,6 +66,15 @@ const router = createBrowserRouter([
                 path:'repairs',
                 element: <Repairs></Repairs>,
                 loader: () => fetch(`http://localhost:5000/repairs`)
+            },
+            {
+                path:'sell-car',
+                element: <SellCar></SellCar>
+            },
+            {
+                path:'old-cars',
+                element: <OldCars></OldCars>,
+                loader: () => fetch(`http://localhost:5000/old-cars`)
             }
         ],
     }

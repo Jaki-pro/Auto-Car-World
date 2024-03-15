@@ -9,7 +9,7 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import car from '../../../assets/featured-vehicle/car9.jpg'
 const Welcome = () => {
     return (
-        <div className='grid lg:grid-cols-2 p-8 mt-24 relative'>
+        <div className='grid lg:grid-cols-2 p-8 mt-24 relative p-8'>
             <div className='mx-auto w-full relative my-auto'>
                 <img className='w-4/5 h-96 mx-auto mt-4 border-2 animate-pulse' src={welcome} alt="" /> 
                 <img className='w-4/5 h-96 mx-auto mt-4 absolute top-12 border-8 rounded-md' src={car} alt="" /> 
