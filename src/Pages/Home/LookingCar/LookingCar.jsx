@@ -16,7 +16,7 @@ const LookingCar = () => {
                 <div className='p-8 mx-auto'><PiDetectiveBold className='size-16 animate-ping' /></div>
                 <h2 className='text-2xl fond-bold text-center'>Want To Sell A Car?</h2>
                 <p className='text-center'>Our cars are delivered fully-registered with all requirements completed. We’ll deliver your car wherever you are.</p>
-                <Link className='mx-auto'><button className='btn btn-outline btn-warning'>SELL YOUR CAR</button></Link>
+                <Link to='/sell-car' className='mx-auto'><button className='btn btn-outline btn-warning'>SELL YOUR CAR</button></Link>
             </div>
             <div className='grid grid-cols-1 justify-center items-center gap-4'>
                 <div className='p-8 mx-auto'><GiAutoRepair className='size-16 animate-ping' /></div>

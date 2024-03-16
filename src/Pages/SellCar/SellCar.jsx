@@ -52,8 +52,10 @@ const SellCar = () => {
     }
     const cnt = 0;
     return (
-        <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero min-h-screen">
+             
+            <div className="hero-content flex-col">
+                <h1 className='pt-8 text-3xl font-semibold text-[#949494]'>Post Your Car Here</h1>
                 <div className="card shrink-0 w-full  shadow-2xl bg-base-100">
                     <div className='flex justify-center'>
                         <img src={cnt} alt="" />
@@ -61,31 +63,32 @@ const SellCar = () => {
                     <form onSubmit={handlePostCar} className="card-body">
                         <div className="grid md:grid-cols-2 ">
                             <div className='p-4'>
-                                <div className=''>
+                                <div className='mb-2'>
                                     <label className="label">
                                         <span className="label-text">Name</span>
                                     </label>
                                     <input type="text" name='name' placeholder="Your Name" className="input input-bordered w-full" required />
                                 </div>
-                                <div>
+                                <div className='mb-2'>
                                     <label className="label">
                                         <span className="label-text">Brand</span>
                                     </label>
                                     <input type="text" name='brand' placeholder="Name of Brand" className="input input-bordered w-full" required />
                                 </div>
-                                <div>
+                                <div className='mb-2'>
                                     <label className="label">
                                         <span className="label-text">Price</span>
                                     </label>
                                     <input type="text" name='price' placeholder="Price of Your Car" className="input input-bordered w-full" required />
                                 </div>
-                                <div>
+                                <div className='mb-2'>
                                     <label className="label">
                                         <span className="label-text">Upload an image of your Car ( .jpg )</span>
                                     </label>
-                                    <input type="file" onChange={convertToBase64} placeholder="Image of your Car" className="input input-bordered w-full" required />
+                                    <input type="file" onChange={convertToBase64}  className="file-input file-input-bordered  w-full max-w-xs" required/>
+                                     
                                 </div>
-                                <div className='w-full'>
+                                <div className='w-full mb-2'>
                                     <label className="label">
                                         <span className="label-text">Write something about your Car</span>
                                     </label>
@@ -93,31 +96,31 @@ const SellCar = () => {
                                 </div>
                             </div>
                             <div className='p-4'>
-                                <div>
+                                <div className='mb-2'>
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
                                     <input type="text" placeholder="Your Email" name='email' className="input input-bordered w-full" required />
                                 </div>
-                                <div>
+                                <div className='mb-2'>
                                     <label className="label">
                                         <span className="label-text">Model</span>
                                     </label>
                                     <input type="text" name='model' placeholder='Model of Your Car' className="input input-bordered w-full" required />
                                 </div>
-                                <div>
+                                <div className='mb-2'>
                                     <label className="label">
                                         <span className="label-text">Used time (Month)</span>
                                     </label>
                                     <input type="text" name='times' placeholder="Ages you're using" className="input input-bordered w-full" required />
                                 </div>
-                                <div>
+                                <div className='mb-2'>
                                     <label className="label">
                                         <span className="label-text">Date</span>
                                     </label>
                                     <input type="date" name='date' placeholder="Your Name" className="input input-bordered w-full" required />
                                 </div>
-                                <div>
+                                <div className='mb-2'>
                                     <label className="label">
                                         <span className="label-text">Contact No</span>
                                     </label>
@@ -127,7 +130,7 @@ const SellCar = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Order Request</button>
+                            <button className="btn btn-primary">POST</button>
                         </div>
                     </form>
                 </div>
