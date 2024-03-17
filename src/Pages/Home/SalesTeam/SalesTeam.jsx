@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import car1 from '../../../assets/featured-vehicle/car1.png'
-import car2 from '../../../assets/featured-vehicle/car2.png'
+import tasfique from '../../../assets/sales-team/tasfique.jpg'
+import nahid from '../../../assets/sales-team/nahid.jpg'
+import efthe from '../../../assets/sales-team/efthe.jpg'
+import saboj from '../../../assets/sales-team/saboj.jpg'
+import nazmul from '../../../assets/sales-team/nazmul.jpg'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from 'react-router-dom';
 import { CiFacebook, CiInstagram, CiTwitter } from "react-icons/ci";
 const FeaturedVehicle = () => {
-    let cnt=0;
+    let cnt = 0;
     var settings = {
         dots: true,
         infinite: true,
@@ -56,17 +59,20 @@ const FeaturedVehicle = () => {
                 <Slider {...settings}>
                     {
                         data.map((item) => (
-                            <div key={cnt++} className="card  bg-base-100 shadow-xl border-2">
-                                <figure className="px-10 pt-10">
-                                    <img src={item.img} alt="Shoes" className="rounded-full h-32 w-32" />
-                                </figure>
-                                <div className="card-body items-center text-center bg-indigo-400 mt-4">
-                                    <h2 className="card-title">{item.name}</h2>
-                                    <p>{item.post}</p>
-                                    <div className="flex justify-around ">
-                                        <CiFacebook style={{color:'blue'}}  className='size-6 mr-8' />
-                                        <CiInstagram style={{color:'pink'}} className='size-6 mr-8 ' />
-                                        <CiTwitter style={{color:'cyan'}} className='size-6' />
+                            <div key={cnt++} className='mr-4 '>
+                                <div className="card mr-4  bg-base-100   border-2 ">
+                                    <figure className="px-10 pt-10">
+                                        <img src={item.img} alt="Shoes" className="rounded-full h-36 w-36" />
+                                    </figure>
+                                    <div className="card-body items-center text-center bg-[#a5c8a1] mt-4 h-48">
+                                        <h2 className="card-title font-mono">{item.name}</h2>
+                                        <p className='text-[white]'>{item.post}</p>
+                                        <div className="flex justify-around ">
+                                            <a href={item.fb}  target="_blank"><CiFacebook style={{ color: 'blue' }} className='size-6 mr-8' /></a>
+                                            
+                                            <CiInstagram style={{ color: 'pink' }} className='size-6 mr-8 ' />
+                                            <CiTwitter style={{ color: 'cyan' }} className='size-6' />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -77,49 +83,39 @@ const FeaturedVehicle = () => {
         </div>
     );
 };
-
+ 
 
 const data = [
     {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Founder"
+        img: nahid,
+        name: "Md. Nahid Hasan",
+        post: "Co-Founder",
+        fb: "https://www.facebook.com/",
     },
     {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Co-Founder"
+        img: saboj,
+        name: "Ahsanul Anam Saboj",
+        post: "Co-Founder",
+        fb: "https://www.facebook.com/ahsanul.anam.92",
     },
     {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Director"
+        img: efthe,
+        name: "Me'razz Hossain Efthe",
+        post: "Co-Founder",
+        fb: "https://www.facebook.com/mehrazz.efthen.7",
     },
     {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Cashier"
+        img: tasfique,
+        name: "Tasfique Rishad",
+        post: "Co-Founder",
+        fb: "https://www.facebook.com/tasfiquerishad86",
     },
     {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Salesman"
-    },
-    {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Salesman"
-    },
-    {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Salesman"
-    },
-    {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Salesman"
-    },
-
+        img: nazmul,
+        name: "Nazmul Hasan",
+        post: "Co-Founder",
+        fb: "https://www.facebook.com/nazmulhasanbhuiyan528",
+    }
+    
 ]
 export default FeaturedVehicle;
