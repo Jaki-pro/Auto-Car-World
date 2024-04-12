@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Banner from '../NewCars/Banner';
 import SingleService from './SingleService';
 import { useLoaderData } from 'react-router-dom';
-
+import serviceImg from '../../assets/services/1.jpg'
 const Repairs = () => {
     const data = useLoaderData();
+    console.log(data);
     const [services, setServices] = useState(data);
     const [popularServices, setPopularServices] = useState(data);
     const filterServices = (event) => {
@@ -18,14 +19,14 @@ const Repairs = () => {
     }
     useEffect(() => {
         let newServices = [];
-        for (let i = 0; i < 6; i += 2) {
+        for (let i = 0; i < 1; i += 2) {
             newServices.push(data[i]);
         }
         setPopularServices(newServices)
     }, [data])
     return (
         <div>
-            <Banner repair={true}></Banner>
+            <Banner>{serviceImg}</Banner>
             <div className='md:flex md:flex-row-reverse justify-center'>
                 <div className='md:w-1/3 p-8 '>
                     <div className='flex justify-center '>

@@ -11,7 +11,7 @@ const ServiceDetails = () => {
     return (
 
         <div className="card w-2/3 bg-base-100 shadow-xl mx-auto">
-            <figure className='bg-indigo-300'><img className='w-2/3 animate-pulse' src={img} alt="Shoes" /></figure>
+            <figure className='bg-indigo-300'><img className='w-2/3 animate-pulse'  src={`http://localhost:5000/${img}`} alt="Shoes" /></figure>
             <div className="card-body bg-indigo-200">
                 <h2 className="">
                     <div className=''>
@@ -26,21 +26,13 @@ const ServiceDetails = () => {
                         <div>
                             {
                                  
-                                facility.map(element=> <h3 key={facilityCnt++}>{element.name}</h3>)
+                                facility.map(element=> <h3 key={facilityCnt++}>{element}</h3>)
                             }
 
                         </div>
                     </div>
                     <div>
-                        <h1 className='text-2xl font-semibold'>About</h1>
-                        <hr />
-                        <div>
-                            {
-                                 
-                                facility.map(element=> <h3 key={facilityCnt++}>{element.details.slice(0,50)}</h3>)
-                            }
-
-                        </div>
+                         
                     </div>
                 </div>
                 <hr />

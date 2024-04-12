@@ -4,6 +4,7 @@ import nahid from '../../../assets/sales-team/nahid.jpg'
 import efthe from '../../../assets/sales-team/efthe.jpg'
 import saboj from '../../../assets/sales-team/saboj.jpg'
 import nazmul from '../../../assets/sales-team/nazmul.jpg'
+import jakaria from '../../../assets/sales-team/jakaria.jpg'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -54,7 +55,7 @@ const FeaturedVehicle = () => {
             <div className='text-center mb-16 '>
                 <h1 className='text-2xl font-extralight mb-4'>-OUR TEAM-</h1>
                 <h1 className='text-5xl font-bold'>MEET OUR SALES TEAM</h1>
-            </div>
+            </div> 
             <div className="mx-auto w-3/4">
                 <Slider {...settings}>
                     {
@@ -66,10 +67,9 @@ const FeaturedVehicle = () => {
                                     </figure>
                                     <div className="card-body items-center text-center bg-[#a5c8a1] mt-4 h-48">
                                         <h2 className="card-title font-mono">{item.name}</h2>
-                                        <p className='text-[white]'>{item.post}</p>
+                                        <p className={item.post=="Founder"? 'text-[red]':'text-[white]'}>{item.post}</p>
                                         <div className="flex justify-around ">
-                                            <a href={item.fb}  target="_blank"><CiFacebook style={{ color: 'blue' }} className='size-6 mr-8' /></a>
-                                            
+                                            <a href={item.fb} target="_blank"><CiFacebook style={{ color: 'blue' }} className='size-6 mr-8' /></a>
                                             <CiInstagram style={{ color: 'pink' }} className='size-6 mr-8 ' />
                                             <CiTwitter style={{ color: 'cyan' }} className='size-6' />
                                         </div>
@@ -83,9 +83,15 @@ const FeaturedVehicle = () => {
         </div>
     );
 };
- 
+
 
 const data = [
+    {
+        img: jakaria,
+        name: "Jakaria Hossain Jaki",
+        post: "Founder",
+        fb: "https://www.facebook.com/innocent.jaki",
+    },
     {
         img: nahid,
         name: "Md. Nahid Hasan",
@@ -116,6 +122,6 @@ const data = [
         post: "Co-Founder",
         fb: "https://www.facebook.com/nazmulhasanbhuiyan528",
     }
-    
+
 ]
 export default FeaturedVehicle;

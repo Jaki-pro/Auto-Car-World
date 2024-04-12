@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { addToDb } from '../../../utilities/fakedb';
+import Swal from 'sweetalert2'
 
 const OrderRequest = () => {
     const service = useLoaderData();
@@ -26,6 +27,7 @@ const OrderRequest = () => {
             price,
             date,  
             img,
+            status: 'Pending'
         }
         //console.log(order);
         user ?
@@ -41,15 +43,23 @@ const OrderRequest = () => {
                     console.log(data);
                 }) :
                 addToDb(service_id, "shopping_cart_service");
-                setCartCnt(cartCnt+1)
+                setCartCnt(cartCnt + 1)
+        Swal.fire({
+            position: "top-middle",
+            icon: "success",
+            title: "Order Accepted",
+            showConfirmButton: false,
+            timer: 1500
+        });
+                
     }
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen rounded-md">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card shrink-0 w-full  shadow-2xl bg-base-100">
                     <div className='flex justify-center'>
-                        <img src={img} alt="" />
+                        <img src={img} alt="" className='rounded-md' />
                     </div>
                     <form onSubmit={handleBook} className="card-body">
                         <div className="grid md:grid-cols-2 ">

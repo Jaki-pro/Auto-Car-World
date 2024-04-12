@@ -3,6 +3,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CiFacebook, CiInstagram, CiTwitter } from "react-icons/ci";
+import tasfique from '../../../assets/sales-team/tasfique.jpg'
+import nahid from '../../../assets/sales-team/nahid.jpg'
+import efthe from '../../../assets/sales-team/efthe.jpg'
+import saboj from '../../../assets/sales-team/saboj.jpg'
+import nazmul from '../../../assets/sales-team/nazmul.jpg'
+
 const FeaturedVehicle = () => {
     let cnt=0;
     var settings = {
@@ -40,7 +46,7 @@ const FeaturedVehicle = () => {
                                 <div className="card-body items-center text-center bg-[#709342] ">
                                     <h2 className="card-title">{item.name}</h2> 
                                     <div className="flex justify-around ">
-                                        <CiFacebook style={{ color: 'blue' }} className='size-6 mr-8' />
+                                        <a href={item.fb}  target="_blank"><CiFacebook style={{ color: 'blue' }} className='size-6 mr-8' /></a>
                                         <CiInstagram style={{ color: 'pink' }} className='size-6 mr-8 ' />
                                         <CiTwitter style={{ color: 'cyan' }} className='size-6' />
                                     </div>
@@ -57,45 +63,35 @@ const FeaturedVehicle = () => {
 
 const data = [
     {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Founder"
+        img: efthe,
+        name: "Me'razz Hossain Efthe",
+        post: "Co-Founder",
+        fb: "https://www.facebook.com/mehrazz.efthen.7",
     },
     {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Co-Founder"
+        img: saboj,
+        name: "Ahsanul Anam Saboj",
+        post: "Co-Founder",
+        fb: "https://www.facebook.com/ahsanul.anam.92",
     },
     {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Director"
+        img: tasfique,
+        name: "Tasfique Rishad",
+        post: "Co-Founder",
+        fb: "https://www.facebook.com/tasfiquerishad86",
     },
     {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Cashier"
+        img: nahid,
+        name: "Md. Nahid Hasan",
+        post: "Co-Founder",
+        fb: "https://www.facebook.com/",
     },
     {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Salesman"
-    },
-    {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Salesman"
-    },
-    {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Salesman"
-    },
-    {
-        img: "https://i.postimg.cc/htcj6s4L/jakaria.jpg",
-        name: "Jakaria Hossain",
-        post: "Salesman"
-    },
-
+        img: nazmul,
+        name: "Nazmul Hasan",
+        post: "Co-Founder",
+        fb: "https://www.facebook.com/nazmulhasanbhuiyan528",
+    }
+    
 ]
 export default FeaturedVehicle;

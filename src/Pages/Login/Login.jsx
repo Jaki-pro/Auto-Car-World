@@ -22,7 +22,7 @@ const Login = () => {
             .catch(e => console.log(e))
     }
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen ">
             <div className="w-[90%] hero-content flex-col lg:flex-row">
                 <div className=" lg:text-left  lg:mr-32 ">
                     <h1 className="text-center text-4xl font-bold text-warning">Login</h1>

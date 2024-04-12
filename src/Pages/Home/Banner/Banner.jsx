@@ -3,24 +3,9 @@ import banner from '../../../assets/banner2.jpg'
 import car1 from '../../../assets/car1.png'
 import car2 from '../../../assets/car2.png'
 import car3 from '../../../assets/car3.png'
-
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 import './Banner.css'
 const Banner = () => {
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 1000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        autoplay: true,
-         
-    };
-    return (
+    return (    
         <div className="bg-cover bg-center mx-h-screen" style={{  }}>
             {/* Your content here */}
             <div className="carousel w-full">

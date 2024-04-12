@@ -55,7 +55,7 @@ const FeaturedVehicle = () => {
                             <div key={item.car_id} >
                                 <div style={{ marginRight: '16px' }}className='card   bg-[#9496f7]   border-2 h-72'>
                                     <div className=' flex justify-center items-center'>
-                                        <img src={item.img} alt="" className='p-2' />
+                                        <img src={`http://localhost:5000/${item.img}`}  alt="" className='p-2' />
                                     </div>
                                     <div className='flex justify-around p-4'>
                                         <div>

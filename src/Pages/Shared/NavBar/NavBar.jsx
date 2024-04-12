@@ -3,14 +3,46 @@ import { Link } from 'react-router-dom';
 import { FaCartShopping } from "react-icons/fa6";
 import { FaAlignLeft } from "react-icons/fa";
 import { CiFacebook, CiInstagram, CiTwitter } from "react-icons/ci";
-import { AuthContext } from '../../../Providers/AuthProvider'; 
-
+import { AuthContext } from '../../../Providers/AuthProvider';
+import Swal from 'sweetalert2'
+import { getStoredCart } from '../../../utilities/fakedb'; 
+import axios from 'axios'
 export const CartContext = createContext();
 const NavBar = () => {
-    const { user, logout, cartCnt, setCartCnt} = useContext(AuthContext);
+    const { user, logout, cartCnt, setCartCnt } = useContext(AuthContext);
     const [cartValue, setCartValue] = useState(0);
-   // console.log(()=>fun());
-
+    const [cartValueService, setCartValueService] = useState(0);
+    const [orderedItems, setOrderedItems] = useState([]);
+    const [orderedItems2, setOrderedItems2] = useState([]);
+    // console.log(()=>fun());
+    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url_services = `http://localhost:5000/bookings-service?email=${user?.email}`;
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setCartValue(data.length));
+        fetch(url_services)
+            .then(res => res.json())
+            .then(data => setCartValueService(data.length));
+        
+        // axios.get(url).then(data=>setCartValue(data?.data?.length));
+        // axios.get(url_services).then(data=>setCartValueService(data?.data?.length));
+        },[user]) 
+    
+     
+        // const storedCart = getStoredCart("shopping_cart")
+        // let count=0;
+        // for (const i in storedCart) {
+        //     count+=storedCart[i];
+        // } 
+        // // Local bookings of service
+        // const storedService = getStoredCart("shopping_cart_service") 
+         
+        // for (const i in storedService) {
+        //     count+=storedService[i];
+        // }
+        // setCartValue(cartValue+count)
+        // console.log(cartValue, cartValueService);
     const handleLogout = () => {
         logout();
     }
@@ -18,7 +50,11 @@ const NavBar = () => {
         setCartValue(value);
     }
     const navItems = <>
-        <li><Link to='/'>Home</Link></li> 
+        {
+            user?.email == 'mdjak8980@gmail.com' && <li><Link to='/admin-panel'>Admin</Link></li>
+        }
+
+        <li><Link to='/'>Home</Link></li>
         <li>
             <details className="dropdown">
                 <summary className="m-1">Shop</summary>
@@ -30,20 +66,26 @@ const NavBar = () => {
             </details>
         </li>
         <li><Link to='/sell-car'>Sell a Car</Link></li>
-        <li><Link to='/'>Contact</Link></li>
-        <li><Link to='/'>About Us</Link></li>
+        {
+            user ? <li><Link to='/contact'>Contact</Link></li> :
+                (
+
+                    <li><Link to='/login'>Contact</Link></li>
+
+                )
+        } 
         {
             user ?
                 <li><Link onClick={handleLogout} to='/'>Logout</Link></li> :
                 <li><Link to='/login'>Sign in</Link></li>
         }
-          
-            
-         
-        <li><Link className='relative' to='/bookings'><FaCartShopping className='size-6' /><div className="absolute left-9 bottom-4 badge badge-secondary">{cartCnt}</div></Link></li>
+
+
+
+        <li><Link className='relative' to='/bookings'><FaCartShopping className='size-6' /><div className="absolute left-9 bottom-4 badge badge-secondary">{cartValue+cartValue}</div></Link></li>
 
     </>
-    return ( 
+    return (
         <div>
 
             <div className="navbar">
@@ -110,5 +152,5 @@ const NavBar = () => {
         </div>
     );
 };
- 
+
 export default NavBar;

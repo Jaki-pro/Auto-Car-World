@@ -3,15 +3,17 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 import Row from './Row';
 import RowServices from './RowServices';
 import { deleteFromDb, getStoredCart } from '../../../utilities/fakedb';
+import Swal from 'sweetalert2'
+
  
-const Cart = (props) => { 
-    const { user, loading, cartCnt, setCartCnt} = useContext(AuthContext);
+const Cart = (props) => {
+    const { user, loading, cartCnt, setCartCnt } = useContext(AuthContext)
     const [bookings, setBookings] = useState([]);
     const [bookingsService, setBookingsService] = useState([]);
     const [carCollection, setCarCollection] = useState([]);
     const [serviceCollection, setServiceCollection] = useState([]);
     const [localBookings, setLocalBookings] = useState([]);
-    const [localBookingsService, setLocalBookingsService] = useState([]); 
+    const [localBookingsService, setLocalBookingsService] = useState([]);
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
     const url_services = `http://localhost:5000/bookings-service?email=${user?.email}`;
     useEffect(() => {
@@ -27,11 +29,10 @@ const Cart = (props) => {
         fetch('services.json')
             .then(res => res.json())
             .then(data => setServiceCollection(data))
-        
+
     }, [])
-    let key1 = 0;
-    console.log(bookings);
-   // console.log(serviceCollection);
+    let key1 = 0; 
+    // console.log(serviceCollection);
     // Local storage Bookings
     useEffect(() => {
         //console.log(products);
@@ -45,9 +46,9 @@ const Cart = (props) => {
                 for (let j = 0; j < count; j++) {
                     newCart.push(exist);
                 }
-            } 
+            }
         }
-        setLocalBookings(newCart); 
+        setLocalBookings(newCart);
         // Local bookings of service
         const storedService = getStoredCart("shopping_cart_service")
         console.log(storedService);
@@ -59,7 +60,7 @@ const Cart = (props) => {
                 for (let j = 0; j < count; j++) {
                     newCart.push(exist);
                 }
-            } 
+            }
         }
         //console.log(newCart);
         setLocalBookingsService(newCart);
@@ -68,83 +69,125 @@ const Cart = (props) => {
 
     // Delete car
     const handleDeleteCar = (car_id, _id) => {
-        // Delete if item is stored in database
-        if (_id) {
-            fetch(`http://localhost:5000/bookings/${_id}`, {
-                method: 'DELETE',
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount) {
-                        const remaining = bookings.filter(booking => booking._id != _id);
-                        setBookings(remaining);
-                    }
-                })
-                return;
-        }
-        // Delete if item is stored in local storage
-        deleteFromDb(car_id, "shopping_cart");
-        const storedCart = getStoredCart("shopping_cart");
-        console.log("storedCart", storedCart);
-        if (storedCart) {
-            let newCart = [];
-            for (const i in storedCart) {
-                const exist = carCollection.find(car => car.car_id == i);
-                if (exist) {
+        // Sweet alert
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Delete if item is stored in database
+                if (_id) {
+                    fetch(`http://localhost:5000/bookings/${_id}`, {
+                        method: 'DELETE',
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.deletedCount) {
+                                const remaining = bookings.filter(booking => booking._id != _id);
+                                setBookings(remaining);
+                            }
+                        })
+                    return;
+                }
+                // Delete if item is stored in local storage
+                deleteFromDb(car_id, "shopping_cart");
+                const storedCart = getStoredCart("shopping_cart");
+                console.log("storedCart", storedCart);
+                if (storedCart) {
+                    let newCart = [];
+                    for (const i in storedCart) {
+                        const exist = carCollection.find(car => car.car_id == i);
+                        if (exist) {
 
-                    let count = storedCart[i];
-                    for (let j = 0; j < count; j++) {
-                        newCart.push(exist);
+                            let count = storedCart[i];
+                            for (let j = 0; j < count; j++) {
+                                newCart.push(exist);
+                            }
+                        }
                     }
-                } 
+                    setLocalBookings(newCart);
+                }
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
             }
-            setLocalBookings(newCart);
-        } 
+        });
+
+
     }
+
+
     //Delete Services
     const handleDeleteService = (service_id, _id) => {
-        // Delete if item is stored in database
-        if (_id) {
-            fetch(`http://localhost:5000/bookings-service/${_id}`, {
-                method: 'DELETE',
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount) {
-                        const remaining = bookingsService.filter(booking => booking._id != _id);
-                        setBookingsService(remaining);
-                    }
-                })
-                return;
-        }
-        // Delete if item is stored in local storage
-        deleteFromDb(service_id, "shopping_cart_service");
-        const storedCart = getStoredCart("shopping_cart_service");
-        console.log("storedCart", storedCart);
-        if (storedCart) {
-            let newCart = [];
-            for (const i in storedCart) {
-                const exist = serviceCollection.find(service => service.service_id == i);
-                if (exist) {
 
-                    let count = storedCart[i];
-                    for (let j = 0; j < count; j++) {
-                        newCart.push(exist);
+        // Sweet alert
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                // Delete if item is stored in database
+                if (_id) {
+                    fetch(`http://localhost:5000/bookings-service/${_id}`, {
+                        method: 'DELETE',
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.deletedCount) {
+                                const remaining = bookingsService.filter(booking => booking._id != _id);
+                                setBookingsService(remaining);
+                            }
+                        })
+                    return;
+                }
+                // Delete if item is stored in local storage
+                deleteFromDb(service_id, "shopping_cart_service");
+                const storedCart = getStoredCart("shopping_cart_service");
+                console.log("storedCart", storedCart);
+                if (storedCart) {
+                    let newCart = [];
+                    for (const i in storedCart) {
+                        const exist = serviceCollection.find(service => service.service_id == i);
+                        if (exist) {
+
+                            let count = storedCart[i];
+                            for (let j = 0; j < count; j++) {
+                                newCart.push(exist);
+                            }
+                        }
                     }
-                } 
+                    setLocalBookingsService(newCart);
+                }
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
             }
-            setLocalBookingsService(newCart);
-        } 
-    } 
-    useEffect(() => {
+        });
 
-        setCartCnt(localBookings.length + bookings.length + localBookingsService.length + bookingsService.length )
+    }
+    useEffect(()=>{
+        setCartCnt(localBookings.length + bookings.length + localBookingsService.length + bookingsService.length)
     })
     return (
         <div className='p-16 '>
-            <h1 className='text-3xl text-center mb-8'>My Bookings: {localBookings.length + bookings.length + localBookingsService.length + bookingsService.length }</h1>
+            <h1 className='text-3xl text-center mb-8'>My Bookings: {localBookings.length + bookings.length + localBookingsService.length + bookingsService.length}</h1>
             <div className="overflow-x-auto border-2">
-            <h1 className='text-3xl font-semibold text-center p-4'>Cars: {localBookings.length + bookings.length  }</h1>
+                <h1 className='text-3xl font-semibold text-center p-4'>Cars: {localBookings.length + bookings.length}</h1>
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -175,7 +218,7 @@ const Cart = (props) => {
                 </table>
             </div>
             <div className="overflow-x-auto mt-8 border-2">
-                <h1 className='text-3xl font-semibold text-center p-4'>Repairs: {localBookingsService.length + bookingsService.length }</h1>
+                <h1 className='text-3xl font-semibold text-center p-4'>Repairs: {localBookingsService.length + bookingsService.length}</h1>
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -195,12 +238,12 @@ const Cart = (props) => {
                             //Local storage Bookings
                             localBookingsService.map(booking => <RowServices key={key1++} handleDeleteService={handleDeleteService} booking={booking}></RowServices>)
 
-                        } 
+                        }
                         {
                             //Database  Bookings
                             bookingsService.map(booking => <RowServices key={booking._id} handleDeleteService={handleDeleteService} booking={booking}></RowServices>)
 
-                        } 
+                        }
 
                     </tbody>
 
@@ -208,7 +251,7 @@ const Cart = (props) => {
             </div>
         </div>
     );
-}; 
- 
- 
+};
+
+
 export default Cart;

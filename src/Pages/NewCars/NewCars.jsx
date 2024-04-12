@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import SingleCar from './SingleCar';
 import Banner from './Banner';
-
+import carBanner from '../../assets/featured-vehicle/car16.jpg'
 const NewCars = () => {
     const data = useLoaderData();
     const [cars, setCars] = useState(data);
@@ -25,7 +25,7 @@ const NewCars = () => {
     }, [cars])
     return (
         <div>
-            <Banner></Banner>
+            <Banner>{carBanner}</Banner>
             <div className='md:flex md:flex-row-reverse  justify-center'>
                 <div className='md:w-1/3 p-8 '>
                     <div className='flex justify-center '>
