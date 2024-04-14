@@ -25,6 +25,8 @@ import ServicesOrders from '../Pages/AdminPanel/ServicesOrders/ServicesOrders';
 import AddCar from '../Pages/AdminPanel/AddCar/AddCar';  
 import AddServices from '../Pages/AdminPanel/AddServices/AddServices';
 import Users from '../Pages/AdminPanel/Users/Users';
+import RentCar from '../Pages/Details/RentCar/RentCar';
+import RentCarList from '../Pages/AdminPanel/RentCarList/RentCarList';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -123,6 +125,16 @@ const router = createBrowserRouter([
                 path: 'registered-users', 
                 element:<Users></Users>,
                 loader: () => fetch(`http://localhost:5000/users`)
+            },
+            {
+                path: 'rent-car/:id', 
+                element:<RentCar></RentCar>,
+                loader: ({ params }) => fetch(`http://localhost:5000/carDetails/${params.id}`)
+            },
+            {
+                path: 'rent-car-list', 
+                element:<RentCarList></RentCarList>,
+                loader: ({ params }) => fetch(`http://localhost:5000/rent-car`)
             }
 
         ],

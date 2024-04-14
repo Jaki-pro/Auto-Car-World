@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
+import Swal from 'sweetalert2';
 // import dd from '../../../images'
 const AddServices = () => {
     const [image, setImage] = useState();
@@ -20,9 +21,9 @@ const AddServices = () => {
 
         event.preventDefault();
         const form = event.target;
-        const service_id = form.service_id.value;  
-        const title = form.title.value;  
-        const price = form.price.value; 
+        const service_id = form.service_id.value;
+        const title = form.title.value;
+        const price = form.price.value;
         const description = form.description.value;
         const facility1 = form.facility1.value;
         const facility2 = form.facility2.value;
@@ -30,10 +31,10 @@ const AddServices = () => {
         const facility4 = form.facility4.value;
         const img = image;
         const addCar = {
-            service_id, 
-            title,  
-            price, 
-            img,  
+            service_id,
+            title,
+            price,
+            img,
             description,
             facility: [facility1, facility2, facility3, facility4]
         }
@@ -46,8 +47,17 @@ const AddServices = () => {
                 }
             }
         )
-        .then(data => setUpdate(!update))
-        .catch(err => console.log(err))
+            .then(data => {
+                Swal.fire({
+                    position: "top-middle",
+                    icon: "success",
+                    title: "Service Added!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                setUpdate(!update);
+            })
+            .catch(err => console.log(err))
 
     }
     // console.log(currentServices);
@@ -67,7 +77,7 @@ const AddServices = () => {
                                         <label className="label">
                                             <span className="label-text">Service ID</span>
                                         </label>
-                                        <input type="text" name='service_id' placeholder = {currentServices?.length+1} className="input-primary input input-bordered w-full" required />
+                                        <input type="text" name='service_id' disabled placeholder={currentServices?.length + 1} className="input-primary input input-bordered w-full" required />
                                     </div>
                                     <div className='mb-2'>
                                         <label className="label">
@@ -77,7 +87,7 @@ const AddServices = () => {
                                     </div>
                                     <div className='mb-2'>
                                         <label className="label">
-                                            <span className="label-text">Price</span>
+                                            <span className="label-text">Price ($)</span>
                                         </label>
                                         <input type="text" name='price' placeholder="Price of the Service" className="input-primary input input-bordered w-full" required />
                                     </div>
@@ -88,7 +98,7 @@ const AddServices = () => {
                                         <input type="file" onChange={onInputChange} className="input-primary file-input file-input-bordered  w-full max-w-xs" required />
 
                                     </div>
-                                    
+
                                     <div className='w-full mb-2'>
                                         <label className="label">
                                             <span className="label-text">Description</span>
@@ -121,7 +131,7 @@ const AddServices = () => {
                                         </label>
                                         <input type="text" placeholder="facility" name='facility4' className="input-primary input input-bordered w-full" required />
                                     </div>
-                                     
+
                                 </div>
                             </div>
 

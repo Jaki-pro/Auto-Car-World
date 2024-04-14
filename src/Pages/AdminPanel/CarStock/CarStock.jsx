@@ -12,9 +12,9 @@ const CarStock = () => {
     return (
         <div className='flex'>
             <Profile></Profile>
-            <div className='flex justify-around bg-[#9edaff] w-full'>
+            <div className='flex justify-around bg-[#62cdd1] w-full'>
                 <div className='md:p-16'> 
-                <h1 className='text-center text-3xl font-bold text-[white]'>Car Stock</h1>
+                <h1 className='text-center text-3xl font-bold text-[white]'>Car Stock: {`(${cars.length})`}</h1>
                 
                     <div className="overflow-x-auto">
                         <table className="table ">

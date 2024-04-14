@@ -1,16 +1,13 @@
 import React, { useRef, useState } from 'react';
 import oldCar2 from '../../assets/featured-vehicle/old-car2.jpg'
-import Banner from '../NewCars/Banner'; 
-
+import Banner from '../NewCars/Banner';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 const SellCar = () => {
-    const [image, setImage] = useState("")
-    const convertToBase64 = (event) => {
-        var reader = new FileReader();
-        reader.readAsDataURL(event.target.files[0]);
-        reader.onload = () => {
-            setImage(reader.result)
-        }
-        //console.log(event);
+    const [image, setImage] = useState()
+    const onInputChange = (e) => {
+        console.log(e.target.files[0]);
+        setImage(e.target.files[0])
     }
     //console.log(image);
     const handlePostCar = (event) => {
@@ -40,19 +37,27 @@ const SellCar = () => {
             contactNo
         }
 
-        fetch('http://localhost:5000/old-cars', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(postCar)
-        })
-            .then(res => res.json())
+        axios.post(
+            'http://localhost:5000/old-cars',
+            postCar,
+            {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            }
+        )
             .then(data => {
-                console.log(data);
+                Swal.fire({
+                    position: "top-middle",
+                    icon: "success",
+                    title: "Congrats.Your car has been post in old car collection!",
+                    showConfirmButton: false,
+                    timer: 2500
+                });
             })
-      
-    } 
+            .catch(err => console.log(err))
+
+    }
     return (
         <div>
             <Banner>{oldCar2}</Banner>
@@ -60,9 +65,9 @@ const SellCar = () => {
 
                 <div className="hero-content flex-col">
                     <h1 className='pt-8 text-3xl font-semibold text-[#0c228d] border-b-2 border-[white] p-4 mb-4 font-serif' >POST YOUR CAR HERE WITH DETAILS INFORMATIN</h1>
-                     
+
                     <div className="card shrink-0 w-full  shadow-2xl bg-base-100">
-                         
+
                         <form onSubmit={handlePostCar} className="card-body">
                             <div className="grid md:grid-cols-2 ">
                                 <div className='p-4'>
@@ -86,9 +91,9 @@ const SellCar = () => {
                                     </div>
                                     <div className='mb-2'>
                                         <label className="label">
-                                            <span className="label-text">Upload an image of your Car ( .jpg )</span>
+                                            <span className="label-text">Upload an image of your Car</span>
                                         </label>
-                                        <input type="file" onChange={convertToBase64} className="input-primary file-input file-input-bordered  w-full max-w-xs" required />
+                                        <input type="file" onChange={onInputChange} className="input-primary file-input file-input-bordered  w-full max-w-xs" required />
 
                                     </div>
                                     <div className='w-full mb-2'>

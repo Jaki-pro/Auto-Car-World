@@ -6,9 +6,9 @@ import Swal from 'sweetalert2'
 
 const OrderRequest = () => {
     const service = useLoaderData();
-    const { user, cartCnt, setCartCnt} = useContext(AuthContext);
+    const { user, cartCnt, setCartCnt } = useContext(AuthContext);
     let cnt = 0;
-    const { price, title, description, _id, service_id, img, facility  } = service;
+    const { price, title, description, _id, service_id, img, facility } = service;
 
     const handleBook = (event) => {
         event.preventDefault();
@@ -16,7 +16,7 @@ const OrderRequest = () => {
         const customerName = form.name.value;
         const email = form.email.value;
         const price = form.price.value;
-        const date = form.date.value; 
+        const date = form.date.value;
         const img = form.img.value;
         const title = form.title.value;
         const order = {
@@ -25,7 +25,7 @@ const OrderRequest = () => {
             service_id,
             email,
             price,
-            date,  
+            date,
             img,
             status: 'Pending'
         }
@@ -42,16 +42,16 @@ const OrderRequest = () => {
                 .then(data => {
                     console.log(data);
                 }) :
-                addToDb(service_id, "shopping_cart_service");
-                setCartCnt(cartCnt + 1)
+            addToDb(service_id, "shopping_cart_service");
+        setCartCnt(!cartCnt)
         Swal.fire({
             position: "top-middle",
             icon: "success",
-            title: "Order Accepted",
+            title: "Order Done!",
             showConfirmButton: false,
             timer: 1500
         });
-                
+
     }
 
     return (

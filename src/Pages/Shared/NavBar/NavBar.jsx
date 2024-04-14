@@ -5,17 +5,18 @@ import { FaAlignLeft } from "react-icons/fa";
 import { CiFacebook, CiInstagram, CiTwitter } from "react-icons/ci";
 import { AuthContext } from '../../../Providers/AuthProvider';
 import Swal from 'sweetalert2'
-import { getStoredCart } from '../../../utilities/fakedb'; 
+import { getStoredCart } from '../../../utilities/fakedb';
 import axios from 'axios'
 export const CartContext = createContext();
 const NavBar = () => {
     const { user, logout, cartCnt, setCartCnt } = useContext(AuthContext);
     const [cartValue, setCartValue] = useState(0);
     const [cartValueService, setCartValueService] = useState(0);
-    const [orderedItems, setOrderedItems] = useState([]);
-    const [orderedItems2, setOrderedItems2] = useState([]);
+    const [cartValueLocal, setCartValueLocal] = useState(0);
+    const [rentValue, setRentValue] = useState(0);
     // console.log(()=>fun());
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url_rent = `http://localhost:5000/rent-car?email=${user?.email}`;
     const url_services = `http://localhost:5000/bookings-service?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
@@ -24,31 +25,44 @@ const NavBar = () => {
         fetch(url_services)
             .then(res => res.json())
             .then(data => setCartValueService(data.length));
-        
+        fetch(url_rent)
+            .then(res => res.json())
+            .then(data => setRentValue(data.length));
+        const storedCart = getStoredCart("shopping_cart")
+        let newCart = [];
+        let cnt = 0;
+        for (const i in storedCart) {
+            cnt += storedCart[i];
+        }
+        const storedService = getStoredCart("shopping_cart_service")
+
+        for (const i in storedService) {
+            cnt += storedService[i];
+
+        }
+        setCartValueLocal(cnt)
         // axios.get(url).then(data=>setCartValue(data?.data?.length));
         // axios.get(url_services).then(data=>setCartValueService(data?.data?.length));
-        },[user]) 
-    
-     
-        // const storedCart = getStoredCart("shopping_cart")
-        // let count=0;
-        // for (const i in storedCart) {
-        //     count+=storedCart[i];
-        // } 
-        // // Local bookings of service
-        // const storedService = getStoredCart("shopping_cart_service") 
-         
-        // for (const i in storedService) {
-        //     count+=storedService[i];
-        // }
-        // setCartValue(cartValue+count)
-        // console.log(cartValue, cartValueService);
+    }, [cartCnt, user])
+
+
+    // const storedCart = getStoredCart("shopping_cart")
+    // let count=0;
+    // for (const i in storedCart) {
+    //     count+=storedCart[i];
+    // } 
+    // // Local bookings of service
+    // const storedService = getStoredCart("shopping_cart_service") 
+
+    // for (const i in storedService) {
+    //     count+=storedService[i];
+    // }
+    // setCartValue(cartValue+count)
+    // console.log(cartValue, cartValueService);
     const handleLogout = () => {
         logout();
     }
-    const handleSetCartValue = (value) => {
-        setCartValue(value);
-    }
+
     const navItems = <>
         {
             user?.email == 'mdjak8980@gmail.com' && <li><Link to='/admin-panel'>Admin</Link></li>
@@ -67,13 +81,13 @@ const NavBar = () => {
         </li>
         <li><Link to='/sell-car'>Sell a Car</Link></li>
         {
-            user ? <li><Link to='/contact'>Contact</Link></li> :
+            user ? <li><Link to={user?.email?`/contact`:`/login`}>Contact</Link></li> :
                 (
 
                     <li><Link to='/login'>Contact</Link></li>
 
                 )
-        } 
+        }
         {
             user ?
                 <li><Link onClick={handleLogout} to='/'>Logout</Link></li> :
@@ -82,7 +96,7 @@ const NavBar = () => {
 
 
 
-        <li><Link className='relative' to='/bookings'><FaCartShopping className='size-6' /><div className="absolute left-9 bottom-4 badge badge-secondary">{cartValue+cartValue}</div></Link></li>
+        <li><Link className='relative' to='/bookings'><FaCartShopping className='size-6' /><div className="absolute left-9 bottom-4 badge badge-secondary">{cartValue + cartValueService + cartValueLocal+rentValue}</div></Link></li>
 
     </>
     return (

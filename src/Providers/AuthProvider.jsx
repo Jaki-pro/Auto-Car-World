@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true);
-    const [cartCnt, setCartCnt] = useState(0); 
+    const [cartCnt, setCartCnt] = useState(false); 
     const createUser = (email, password)=>{
         return createUserWithEmailAndPassword(auth, email, password);
     }
@@ -22,7 +22,7 @@ const AuthProvider = ({children}) => {
             return unsubscribe();
         }
     })
-    console.log(user);
+    // console.log(user);
     const logout = ()=>{
         return signOut(auth);
 

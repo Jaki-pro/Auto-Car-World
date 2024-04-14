@@ -11,7 +11,7 @@ const SingleCar = ({car}) => {
                 <h2 className="card-title">{car.company}</h2>
                 <p>{car.description.slice(0, 80)}..</p>
                 <div className="w-full card-actions flex justify-between items-center">
-                    <p>Price: {car.price}$</p>
+                    <p className='font-bold text-[green]'>Price: {car.price}$</p>
                     <Link to={`/carDetails/${car._id}`}><button className="btn btn-primary">Explore</button></Link>
                     
 

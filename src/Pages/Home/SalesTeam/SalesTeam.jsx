@@ -65,7 +65,7 @@ const FeaturedVehicle = () => {
                                     <figure className="px-10 pt-10">
                                         <img src={item.img} alt="Shoes" className="rounded-full h-36 w-36" />
                                     </figure>
-                                    <div className="card-body items-center text-center bg-[#a5c8a1] mt-4 h-48">
+                                    <div className="card-body items-center text-center bg-[#d15fe8] mt-4 h-48">
                                         <h2 className="card-title font-mono">{item.name}</h2>
                                         <p className={item.post=="Founder"? 'text-[red]':'text-[white]'}>{item.post}</p>
                                         <div className="flex justify-around ">

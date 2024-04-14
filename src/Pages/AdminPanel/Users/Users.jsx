@@ -31,7 +31,7 @@ const Users = () => {
     return (
         <div className='flex'>
             <Profile></Profile>
-            <div className=' w-3/4 px-16 py-4' >
+            <div className=' w-3/4 px-16 py-4 bg-[#62cdd1]' >
                 <h2 className='text-3xl font-bold text-center mb-4 '>Registered Users</h2>
                 <div className='grid xl:grid-cols-3 lg:grid-cols-2 gap-4 items-center justify-center'>
                     {

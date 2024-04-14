@@ -11,10 +11,11 @@ const OldCars = () => {
     return (
         <div>
             <Banner>{oldCar}</Banner>
+            <h2 className='text-3xl font-bold text-center'>Choose awesome Second hand Cars <br /> and use given Contact to reach</h2>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 justify-around p-8'>
                 {
                     cars.map(car => <div key={car._id} className="card bg-base-100 shadow-xl">
-                        <figure><img className='h-64 w-full' src={car.img} alt="Shoes" /></figure>
+                        <figure><img className='h-64 w-full'  src={`http://localhost:5000/${car.img}`} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">
                                 {car.brand}
@@ -28,7 +29,7 @@ const OldCars = () => {
                                 </div>
                                 <div className="grid grid-cols-1 gap-2">
                                     <div className="">Date: {car.date}</div>
-                                    <h3 className=" ">Price: {car.price}$</h3>
+                                    <h3 className="text-[green] font-semibold">Price: {car.price}$</h3>
                                 </div>
                             </div>
                         </div>

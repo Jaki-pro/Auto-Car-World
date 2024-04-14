@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
+import Swal from 'sweetalert2';
 // import dd from '../../../images'
 const AddCar = () => {
     const [image, setImage] = useState();
@@ -59,11 +60,20 @@ const AddCar = () => {
                 }
             }
         )
-        .then(data => setUpdate(!update))
-        .catch(err => console.log(err))
+            .then(data => {
+                Swal.fire({
+                    position: "top-middle",
+                    icon: "success",
+                    title: "Car Added!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                setUpdate(!update);
+            })
+            .catch(err => console.log(err))
 
     }
-     
+
     return (
         <div>
             <div className="hero min-h-screen">
@@ -80,7 +90,7 @@ const AddCar = () => {
                                         <label className="label">
                                             <span className="label-text">Car ID</span>
                                         </label>
-                                        <input type="text" name='car_id' placeholder={currentCars.length + 1} className="input-primary input input-bordered w-full" required />
+                                        <input type="text" disabled name='car_id' placeholder={currentCars.length + 1} className="input-primary input input-bordered w-full" required />
                                     </div>
                                     <div className='mb-2'>
                                         <label className="label">
@@ -90,7 +100,7 @@ const AddCar = () => {
                                     </div>
                                     <div className='mb-2'>
                                         <label className="label">
-                                            <span className="label-text">Price</span>
+                                            <span className="label-text">Price ($)</span>
                                         </label>
                                         <input type="text" name='price' placeholder="Price of the Car" className="input-primary input input-bordered w-full" required />
                                     </div>

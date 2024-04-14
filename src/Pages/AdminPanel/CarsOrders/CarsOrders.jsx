@@ -30,7 +30,7 @@ const CarsOrders = () => {
     return (
         <div className='flex'>
             <Profile></Profile>
-            <div className='flex justify-around bg-[#9edaff] w-full'>
+            <div className='flex justify-around bg-[#62cdd1] w-full'>
                 <div className='md:p-16'>
                     <h2 className='text-2xl text-center'>Total: ({orders.length})</h2>
                     <div className="overflow-x-auto">

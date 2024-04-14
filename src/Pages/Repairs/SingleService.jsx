@@ -11,7 +11,7 @@ const SingleService = ({service}) => {
                 <h2 className="serviced-title font-bold">{service.title}</h2>
                 <p>{service.description.slice(0, 80)}..</p>
                 <div className="w-full serviced-actions flex justify-between items-center">
-                    <p className='text-[green]'>Price: {service.price}$</p>
+                    <p className='text-[green] font-bold'>Price: {service.price}$</p>
                     <Link to={`/serviceDetails/${service._id}`}><button className="btn btn-primary">Explore</button></Link>
 
 

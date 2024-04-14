@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const CarDetails = () => {
     const car = useLoaderData();
     let cnt=0;
+    const {user} = useContext(AuthContext);
     const { company, model, _id, price, img, year, transmission, fuel_type, color, description, options, engine } = car;
     // console.log(options);
     return (
@@ -44,9 +46,13 @@ const CarDetails = () => {
                     </div>
                 </div>
                 <hr />
-                <div className=' flex justify-around'>
-                    <p className='text-[green] font-bold'>Price: {price} $</p> 
-                    <Link to={`/order-request/${_id}`}><button className='btn btn-primary'>Order Now</button></Link>
+                <div className=' flex justify-between items-end'>
+                    <div>
+
+                        <p className='text-[green] font-bold'>Price: {price} $</p> 
+                        <Link to={`/order-request/${_id}`}><button className='btn btn-primary'>Order Now</button></Link>
+                    </div>
+                    <Link onClick={()=>!user&&alert('you should login first')} to={user?.email?`/rent-car/${_id}`:'/login'}><button className='btn btn-primary'>Apply for Rent</button></Link>
                 </div>
             </div>
         </div>
