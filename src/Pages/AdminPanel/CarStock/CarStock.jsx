@@ -5,7 +5,7 @@ const CarStock = () => {
     const [cars, setCars] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/cars')
+        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/cars')
             .then(res => res.json())
             .then(data => setCars(data))
     }, [])
@@ -50,7 +50,7 @@ const CarStock = () => {
                                         <td className=''> 
                                         </td>
                                         <td className=''>
-                                            <img className='size-16 rounded-full'  src={`http://localhost:5000/${car.img}`} alt="" />
+                                            <img className='size-16 rounded-full'  src={`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/${car.img}`} alt="" />
                                             <br />
                                         </td>
                                         <td className=''> 

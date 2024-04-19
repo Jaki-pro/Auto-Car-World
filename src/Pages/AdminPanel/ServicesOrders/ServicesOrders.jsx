@@ -5,12 +5,12 @@ const ServicesOrders = () => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/bookings-service')
+        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/bookings-service')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/bookings-service/${id}`, {
+        fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/bookings-service/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

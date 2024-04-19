@@ -6,7 +6,7 @@ const RentCarList = () => {
     const loader = useLoaderData();
     const [rentCars, setRentCars] = useState(loader);
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/rent-car/${id}`, {
+        fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/rent-car/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

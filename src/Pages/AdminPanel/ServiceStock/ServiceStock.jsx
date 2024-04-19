@@ -4,7 +4,7 @@ const ServiceStock = () => {
     const [services, setServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/repairs')
+        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/repairs')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -45,7 +45,7 @@ const ServiceStock = () => {
                                         <td className=''> 
                                         </td>
                                         <td className=''>
-                                            <img className='size-16 rounded-full' src={`http://localhost:5000/${service.img}`} alt="" />
+                                            <img className='size-16 rounded-full' src={`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/${service.img}`} alt="" />
                                             <br />
                                         </td>
                                         <td className=''> 

@@ -15,9 +15,9 @@ const NavBar = () => {
     const [cartValueLocal, setCartValueLocal] = useState(0);
     const [rentValue, setRentValue] = useState(0);
     // console.log(()=>fun());
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
-    const url_rent = `http://localhost:5000/rent-car?email=${user?.email}`;
-    const url_services = `http://localhost:5000/bookings-service?email=${user?.email}`;
+    const url = `https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/bookings?email=${user?.email}`;
+    const url_rent = `https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/rent-car?email=${user?.email}`;
+    const url_services = `https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/bookings-service?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

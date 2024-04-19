@@ -9,7 +9,7 @@ const AddServices = () => {
     const [currentServices, setCurrentServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/repairs')
+        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/repairs')
             .then(res => res.json())
             .then(data => setCurrentServices(data));
     }, [update])
@@ -39,7 +39,7 @@ const AddServices = () => {
             facility: [facility1, facility2, facility3, facility4]
         }
         axios.post(
-            'http://localhost:5000/repairs',
+            'https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/repairs',
             addCar,
             {
                 headers: {
@@ -147,7 +147,7 @@ const AddServices = () => {
                 <input type="submit" className='btn btn-primary' value="Submit" />
             </form>
               
-               {allImages.map(img=><img key={img._id} src={`http://localhost:5000/${img.img}`} alt="fgdfg" />)} */}
+               {allImages.map(img=><img key={img._id} src={`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/${img.img}`} alt="fgdfg" />)} */}
 
         </div>
     );

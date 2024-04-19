@@ -29,7 +29,7 @@ const Signup = () => {
                             uid: user.uid,
                             accessToken: user.accessToken
                         }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

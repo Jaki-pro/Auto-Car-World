@@ -37,7 +37,7 @@ const FeaturedVehicle = () => {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/cars')
+        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/cars')
             .then(res => res.json()
                 .then(data => setCars(data)))
     }, []);
@@ -55,7 +55,7 @@ const FeaturedVehicle = () => {
                             <div key={item.car_id} >
                                 <div style={{ marginRight: '16px' }}className='card   bg-[#9496f7]   border-2 h-72'>
                                     <div className=' flex justify-center items-center'>
-                                        <img src={`http://localhost:5000/${item.img}`}  alt="" className='p-2' />
+                                        <img src={`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/${item.img}`}  alt="" className='p-2' />
                                     </div>
                                     <div className='flex justify-around p-4'>
                                         <div>

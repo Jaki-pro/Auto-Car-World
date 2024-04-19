@@ -5,10 +5,10 @@ const Stock = () => {
     const [services, setServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/cars')
+        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/cars')
             .then(res => res.json())
             .then(data => setCars(data))
-        fetch('http://localhost:5000/repairs')
+        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/repairs')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

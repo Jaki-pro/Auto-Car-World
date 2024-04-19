@@ -34,10 +34,10 @@ const FeaturedVehicle = () => {
                         data.map((item) => (
                             <div key={cnt++} className=" bg-base-100 shadow-xl border-2">
                                 <div className='lg:flex'>
-                                    <div className="m-2 w-2/3 ">
-                                        <img src={item.img} alt="Shoes" className="rounded-tr-lg h-64 w-64   " />
+                                    <div className="m-2 ">
+                                        <img src={item.img} alt="Shoes" className="rounded-tr-lg md:h-64 sm:48 w-64 mx-auto lg:w-96" />
                                     </div>
-                                    <p className='mx-auto grid items-center'>Here are many variations of passages of Lorem Ipsum available,
+                                    <p className='mx-auto p-2 flex items-center text-justify'>Here are many variations of passages of Lorem Ipsum available,
                                         butinjected of the humour, or randomised words which don't look even
                                         slightly in the rom believable. If you are going to use a passage of
                                         Lorem Ipsum, you Here are many variations of passages of Lorem Ipsum

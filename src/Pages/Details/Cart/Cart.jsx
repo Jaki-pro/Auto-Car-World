@@ -15,9 +15,9 @@ const Cart = (props) => {
     const [serviceCollection, setServiceCollection] = useState([]);
     const [localBookings, setLocalBookings] = useState([]);
     const [localBookingsService, setLocalBookingsService] = useState([]);
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
-    const url_rent = `http://localhost:5000/rent-car?email=${user?.email}`;
-    const url_services = `http://localhost:5000/bookings-service?email=${user?.email}`;
+    const url = `https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/bookings?email=${user?.email}`;
+    const url_rent = `https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/rent-car?email=${user?.email}`;
+    const url_services = `https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/bookings-service?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
@@ -26,10 +26,10 @@ const Cart = (props) => {
         fetch(url_services)
             .then(res => res.json())
             .then(data => setBookingsService(data))
-        fetch('http://localhost:5000/cars')
+        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/cars')
             .then(res => res.json())
             .then(data => setCarCollection(data))
-        fetch('http://localhost:5000/repairs')
+        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/repairs')
             .then(res => res.json())
             .then(data => setServiceCollection(data))
         fetch(url_rent)
@@ -91,7 +91,7 @@ const Cart = (props) => {
                 // Delete if item is stored in database
                 if (isRent) {
                     // console.log(isRent);
-                    fetch(`http://localhost:5000/rent-car/${_id}`, {
+                    fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/rent-car/${_id}`, {
                         method: 'DELETE',
                     })
                         .then(res => res.json())
@@ -106,7 +106,7 @@ const Cart = (props) => {
                 }
                 if (_id) {
                     // console.log(_id);
-                    fetch(`http://localhost:5000/bookings/${_id}`, {
+                    fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/bookings/${_id}`, {
                         method: 'DELETE',
                     })
                         .then(res => res.json())
@@ -168,7 +168,7 @@ const Cart = (props) => {
 
                 // Delete if item is stored in database
                 if (_id) {
-                    fetch(`http://localhost:5000/bookings-service/${_id}`, {
+                    fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/bookings-service/${_id}`, {
                         method: 'DELETE',
                     })
                         .then(res => res.json())

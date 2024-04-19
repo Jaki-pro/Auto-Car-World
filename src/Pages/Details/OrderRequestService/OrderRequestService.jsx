@@ -31,7 +31,7 @@ const OrderRequest = () => {
         }
         //console.log(order);
         user ?
-            fetch('http://localhost:5000/booking-service', {
+            fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/booking-service', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

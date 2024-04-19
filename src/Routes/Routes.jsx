@@ -27,6 +27,7 @@ import AddServices from '../Pages/AdminPanel/AddServices/AddServices';
 import Users from '../Pages/AdminPanel/Users/Users';
 import RentCar from '../Pages/Details/RentCar/RentCar';
 import RentCarList from '../Pages/AdminPanel/RentCarList/RentCarList';
+import Contact from '../Pages/Contact/Contact';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -39,22 +40,22 @@ const router = createBrowserRouter([
             {
                 path: "carDetails/:id",
                 element: <CarDetails></CarDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/carDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/carDetails/${params.id}`)
             },
             {
                 path: "serviceDetails/:id",
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/serviceDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/serviceDetails/${params.id}`)
             },
             {
                 path: "order-request/:id",
                 element: <OrderRequest></OrderRequest>,
-                loader: ({ params }) => fetch(`http://localhost:5000/carDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/carDetails/${params.id}`)
             },
             {
                 path: "order-request-service/:id",
                 element: <OrderRequestService></OrderRequestService>,
-                loader: ({ params }) => fetch(`http://localhost:5000/serviceDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/serviceDetails/${params.id}`)
             },
             {
                 path: 'sign-up',
@@ -71,12 +72,12 @@ const router = createBrowserRouter([
             {
                 path: 'new-cars',
                 element: <NewCars></NewCars>,
-                loader: () => fetch(`http://localhost:5000/cars`)
+                loader: () => fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/cars`)
             },
             {
                 path: 'repairs',
                 element: <Repairs></Repairs>,
-                loader: () => fetch(`http://localhost:5000/repairs`)
+                loader: () => fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/repairs`)
             },
             {
                 path: 'sell-car',
@@ -85,12 +86,11 @@ const router = createBrowserRouter([
             {
                 path: 'old-cars',
                 element: <OldCars></OldCars>,
-                loader: () => fetch(`http://localhost:5000/old-cars`)
-                
+                loader: () => fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/old-cars`)
             },
             {
                 path: 'contact',
-                element: <p>Under Development</p>,
+                element: <Contact></Contact>
             },
             {
                 path: 'admin-panel',
@@ -124,17 +124,17 @@ const router = createBrowserRouter([
             {
                 path: 'registered-users', 
                 element:<Users></Users>,
-                loader: () => fetch(`http://localhost:5000/users`)
+                loader: () => fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/users`)
             },
             {
                 path: 'rent-car/:id', 
                 element:<RentCar></RentCar>,
-                loader: ({ params }) => fetch(`http://localhost:5000/carDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/carDetails/${params.id}`)
             },
             {
                 path: 'rent-car-list', 
                 element:<RentCarList></RentCarList>,
-                loader: ({ params }) => fetch(`http://localhost:5000/rent-car`)
+                loader: ({ params }) => fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/rent-car`)
             }
 
         ],

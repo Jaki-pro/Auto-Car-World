@@ -15,7 +15,7 @@ const OldCars = () => {
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 justify-around p-8'>
                 {
                     cars.map(car => <div key={car._id} className="card bg-base-100 shadow-xl">
-                        <figure><img className='h-64 w-full'  src={`http://localhost:5000/${car.img}`} alt="Shoes" /></figure>
+                        <figure><img className='h-64 w-full'  src={`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/${car.img}`} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">
                                 {car.brand}

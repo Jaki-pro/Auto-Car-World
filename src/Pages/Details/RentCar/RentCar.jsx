@@ -30,7 +30,7 @@ const RentCar = () => {
             status: 'pending'
         }
         console.log(order);
-        fetch('http://localhost:5000/rent-car', {
+        fetch('https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/rent-car', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

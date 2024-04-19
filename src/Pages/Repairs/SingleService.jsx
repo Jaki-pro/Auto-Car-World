@@ -5,7 +5,7 @@ const SingleService = ({service}) => {
     return (
         <div className="card  w-full bg-base-100 shadow-xl mx-auto mx-4 border-2 p-2">
             <figure className="w-full mx-auto h-1/2 hover:animate-pulse rounded-lg">
-                <img src={`http://localhost:5000/${service.img}`} alt="Shoes" className="rounded-xl p-4 size-full"   />
+                <img src={`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/${service.img}`} alt="Shoes" className="rounded-xl p-4 size-full"   />
             </figure>
             <div className="serviced-body  bg-indigo-100 h-1/2 p-4 rounded-t-lg">
                 <h2 className="serviced-title font-bold">{service.title}</h2>

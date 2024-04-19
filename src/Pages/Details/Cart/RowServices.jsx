@@ -14,7 +14,7 @@ const Row = ({booking, handleDeleteService}) => {
             <td>
                 <div className="">
                     <div className="mask mask-squircle w-24 h-24">
-                        <img  src={`http://localhost:5000/${img}`} className='w-24 h-24' alt="Avatar Tailwind CSS Component" />
+                        <img  src={`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/${img}`} className='w-24 h-24' alt="Avatar Tailwind CSS Component" />
                     </div>
                 </div>
             </td>
@@ -23,7 +23,7 @@ const Row = ({booking, handleDeleteService}) => {
             <td>{date}</td>
             <th>
                 {
-                    booking?.status=='Accepted'?<p className='text-[green]'>Accepted</p>:<p>Pending</p>
+                    booking?.status=='Accepted'?<p className='text-[green]'>Confirmed</p>:<p>Pending</p>
                 }
             </th> 
         </tr>

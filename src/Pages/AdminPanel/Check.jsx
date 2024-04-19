@@ -7,14 +7,14 @@ const Check = () => {
     const [currentUsers, setCurrentUsers] = useState(users);
     const deleteUser=(uid, _id) =>{
         // Delete user from Firebase
-        fetch(`http://localhost:5000/deleteUser/${uid}`,{
+        fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/deleteUser/${uid}`,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             }
         })
         // Delete user from Database
-        fetch(`http://localhost:5000/deleteUserFromDB/${_id}`,{
+        fetch(`https://auto-car-world-server-jaki-pro-jakaria-hossains-projects.vercel.app/deleteUserFromDB/${_id}`,{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
