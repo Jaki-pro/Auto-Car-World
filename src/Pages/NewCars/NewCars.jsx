@@ -14,7 +14,7 @@ const NewCars = () => {
         const hi = form.hi.value;
         const tmp = data.filter(car => car.price >= lo && car.price <= hi);
         setCars(tmp)
-        console.log(hi,lo);
+        console.log(hi, lo);
     }
     useEffect(() => {
         let newCars = [];
@@ -33,18 +33,20 @@ const NewCars = () => {
                             <h3 className='text-center font-light text-xl text-[#478f00]'>Filter By Price ($)</h3>
                             <div className="">
                                 <form onSubmit={filterCars} className="card-body">
-                                    <div className="flex justify-around items-center ">
+                                    <div className="md:flex md:justify-around items-center ">
+                                        <div className='flex justify-around items-center md:mb-0 mb-2'>
+                                            <div className='w-24'>
+                                                <input type="text" name='lo' placeholder="10000" className="input input-bordered w-full" required />
+                                            </div>
+                                            <span className='mx-2'>to</span>
+                                            <div className='w-24 mr-2'>
+                                                <input type="text" name='hi' placeholder="50000" className="input input-bordered w-full" required />
+                                            </div>
+                                        </div>
 
-                                        <div className='w-24'>
-                                            <input type="text" name='lo' placeholder="10000" className="input input-bordered w-full" required />
-                                        </div>
-                                        <span className='mx-2'>to</span>
-                                        <div className='w-24 mr-2'>
-                                            <input type="text" name='hi' placeholder="50000" className="input input-bordered w-full" required />
-                                        </div>
                                         <div className="form-control">
                                             <button className="btn  btn-warning">Search</button>
-                                        </div> 
+                                        </div>
                                     </div>
 
                                 </form>
@@ -53,7 +55,7 @@ const NewCars = () => {
                     </div>
                     <div className='grid grid-cols-1 gap-4 mt-8'>
                         <h2 className='text-xl text-center font-semibold '>POPULAR CARS</h2>
-                         {
+                        {
                             popularCars.map(car => <SingleCar key={car._id} car={car}></SingleCar>)
                         }
                     </div>
