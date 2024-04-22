@@ -15,7 +15,7 @@ const CarDetails = () => {
             <div className="card-body bg-indigo-200">
                 <h2 className="">
                     <div className='flex justify-between items-center'>
-                        <p className='text-3xl mr-2'>{company}</p>
+                        <p className='text-3xl mr-2 font-bold'>{company}</p>
                         <p className='font-semibold text-xs sm:text-lg text-[#009dff]'>Color: {color}</p>
                     </div>
                     <div>

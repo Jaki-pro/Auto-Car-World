@@ -9,9 +9,9 @@ const Profile = () => {
 
                     <h3 className='text-2xl mb-16 text-center'>Admin Profile</h3>
                     <img className='rounded-full size-16 mx-auto' src={pp} alt="" />
-                    <h4 className='text-2xl py-4 text-center text-[white]'>{user?.displayName}</h4>
-                    <h4 className='text-xl text-center'>Founder</h4>
-                    <h4 className='text-2xl text-center'>Auto Car World</h4>
+                    <h4 className='text-lg sm:text-2xl py-4 text-center text-[white]'>{user?.displayName}</h4>
+                    <h4 className='text-lg sm:text-2xl text-center'>Founder</h4>
+                    <h4 className='text-lg sm:text-2xl text-center'>Auto Car World</h4>
                 </div>
             </div>
     );

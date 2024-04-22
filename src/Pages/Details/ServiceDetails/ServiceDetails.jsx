@@ -15,10 +15,10 @@ const ServiceDetails = () => {
             <div className="card-body bg-indigo-200">
                 <h2 className="">
                     <div className=''>
-                        <p className='text-3xl'>{title}</p> 
+                        <p className='text-3xl font-bold'>{title}</p> 
                     </div> 
                 </h2>
-                <p>{description.slice(0, 400)}</p>
+                <p className='text-justify'>{description.slice(0, 400)}</p>
                 <div className='flex justify-between'>
                     <div>
                         <h1 className='text-2xl font-semibold'>New Updates</h1>
@@ -36,8 +36,8 @@ const ServiceDetails = () => {
                     </div>
                 </div>
                 <hr />
-                <div className=' flex justify-around'>
-                    <p className='text-[green] font-bold'>Price: {price} $</p>
+                <div className=' flex justify-between items-center ' >
+                    <p className='text-[green] font-bold mr-2'>Price: {price} $</p>
                     <Link to={`/order-request-service/${_id}`}><button className='btn btn-primary'>Order Now</button></Link>
                 </div>
             </div>

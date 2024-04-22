@@ -64,7 +64,7 @@ const SellCar = () => {
             <div className="hero min-h-screen">
 
                 <div className="hero-content flex-col">
-                    <h1 className='pt-8 text-3xl font-semibold text-[#0c228d] border-b-2 border-[white] p-4 mb-4 font-serif' >POST YOUR CAR HERE WITH DETAILS INFORMATIN</h1>
+                    <h1 className='pt-8 text-xl sm:text-3xl font-semibold text-[#0c228d] border-b-2 border-[white] p-4 mb-4 font-serif text-center' >POST YOUR CAR HERE WITH DETAILS INFORMATIN</h1>
 
                     <div className="card shrink-0 w-full  shadow-2xl bg-base-100">
 
