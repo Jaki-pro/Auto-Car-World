@@ -9,7 +9,7 @@ const SingleCar = ({car}) => {
             </figure>
             <div className="card-body items-center text-justify bg-indigo-100  p-4 rounded-t-lg"> 
                 <h2 className="card-title">{car.company}</h2>
-                <p>{car.description.slice(0, 80)}..</p>
+                <p className=''>{car.description.slice(0, 80)}..</p>
                 <div className="w-full  flex justify-between items-center">
                     <p className='font-bold text-[green]'>Price: {car.price}$</p>
                     <Link to={`/carDetails/${car._id}`}><button className="btn btn-primary">Explore</button></Link>
